@@ -36,8 +36,6 @@ NSString * const kTTTBackgroundCornerRadiusAttributeName = @"TTTBackgroundCorner
 static const NSTimeInterval kLongPressTimeInterval = 0.5;
 static const CGFloat kLongPressGutter = 22;
 
-static inline CTTextAlignment CTTextAlignmentFromUITextAlignment(UITextAlignment alignment) {
-	switch (alignment) {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
 typedef NSTextAlignment TTTTextAlignment;
 typedef NSLineBreakMode TTTLineBreakMode;
@@ -224,13 +222,14 @@ static inline NSAttributedString * NSAttributedStringBySettingColorFromContext(N
 }
 
 @interface TTTAttributedLabel ()
+
 @property (readwrite, nonatomic, copy) NSAttributedString *inactiveAttributedText;
 @property (readwrite, nonatomic, copy) NSAttributedString *renderedAttributedText;
 @property (readwrite, nonatomic, strong) NSDataDetector *dataDetector;
 @property (readwrite, nonatomic, strong) NSArray *links;
 @property (readwrite, nonatomic, strong) NSTextCheckingResult *activeLink;
 
-@property (nonatomic, strong) NSTimer* longPressTimer;
+@property (nonatomic, strong) NSTimer *longPressTimer;
 @property (nonatomic, assign) CGPoint touchPoint;
 
 @end
@@ -1082,7 +1081,7 @@ afterInheritingLabelAttributesAndConfiguringWithBlock:(NSMutableAttributedString
                 if ([self.delegate respondsToSelector:@selector(attributedLabel:didLongPressLinkWithURL:atPoint:)]) {
                     [self.delegate attributedLabel:self didLongPressLinkWithURL:result.URL atPoint:self.touchPoint];
                     return;
-                }
+                }   
                 break;
             case NSTextCheckingTypeAddress:
                 if ([self.delegate respondsToSelector:@selector(attributedLabel:didLongPressLinkWithAddress:atPoint:)]) {
