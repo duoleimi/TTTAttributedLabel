@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'duoleimi/TTTAttributedLabel'
+  s.name = 'duoleimi_TTTAttributedLabel'
   s.version = '1.7.5'
   s.authors = {'Mattt Thompson' => 'm@mattt.me'}
   s.homepage = 'https://github.com/duoleimi/TTTAttributedLabel/'
